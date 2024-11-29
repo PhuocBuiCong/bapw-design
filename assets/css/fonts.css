@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Qlassy";
+  src: url("/fonts/Qlassy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Qlassy";
+  src: url("/fonts/Qlassy.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Akkurat";
+  src: url("/fonts/Akkurat.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Akkurat";
+  src: url("/fonts/Akkurat.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chronicle";
+  src: url("/fonts/ChronicleSemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
