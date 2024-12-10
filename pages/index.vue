@@ -78,12 +78,14 @@
           </p>
           <button
             class="hidden sm:block h-10 max-w-[326px] bg-black-100 text-white border border-black-100 hover:opacity-80 transition-colors font-akkurat"
+            @click="navigateTo('/product')"
           >
             Shop New In
           </button>
         </div>
         <div class="sm:w-[65%] ml-6">
-          <Swiper
+          <SwiperComponent
+            :items="itemCarousel"
             :modules="modules"
             :effect="'coverflow'"
             :centeredSlides="true"
@@ -124,19 +126,9 @@
               pauseOnMouseEnter: true,
             }"
             @swiper="onSwiper"
-            class="w-full [&>.swiper-pagination]:hidden sm:[&>.swiper-pagination]:block"
-          >
-            <SwiperSlide v-for="item in itemCarousel" :key="item.id">
-              <div class="w-full overflow-hidden">
-                <img
-                  :src="item.src"
-                  :alt="item.alt"
-                  class="w-[144px] h-[191px] sm:w-full sm:h-full object-cover"
-                />
-              </div>
-              <p>{{ item.des }}</p>
-            </SwiperSlide>
-          </Swiper>
+            swiper-class="w-full [&>.swiper-pagination]:hidden sm:[&>.swiper-pagination]:block"
+            image-class="w-[144px] h-[191px] sm:w-full sm:h-full object-cover"
+          />
         </div>
         <button
           class="mt-8 block sm:hidden mx-auto h-10 w-[240px] sm:max-w-[326px] bg-black-100 text-white border border-black-100 hover:opacity-80 transition-colors font-akkurat"
@@ -296,13 +288,12 @@
       </div>
 
       <!-- gallery image -->
-      <GalleryImage :articles="articles" class="mt-10" />
+      <GalleryImage :articles="articles" class="mt-10 bg-white" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
 import {
   Navigation,
   Pagination,
@@ -310,6 +301,7 @@ import {
   EffectCoverflow,
 } from "swiper/modules";
 import GalleryImage from "~/components/GalleryImage.vue";
+import SwiperComponent from "~/components/SwiperComponent.vue";
 
 definePageMeta({
   layout: "default",
