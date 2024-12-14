@@ -16,9 +16,7 @@ export default {
         },
       },
       fontFamily: {
-        qlassy: ["Qlassy", "sans-serif"],
-        akkurat: ["Akkurat", "sans-serif"],
-        chronicle: ["Chronicle", " sans-serif"],
+        serif: ["Noto Serif", "serif"],
       },
     },
   },
