@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: [],
+  modules: ["@nuxt/image"],
   css: [
     "~/assets/css/main.css",
     "~/assets/css/fonts.css",
@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "/": { ssr: true }, // Cụ thể cho trang chủ
+    "/": { ssr: true },
   },
   app: {
     head: {

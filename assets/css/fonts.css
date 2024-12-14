@@ -1,34 +1,27 @@
 @font-face {
-  font-family: "Qlassy";
-  src: url("/fonts/Qlassy.ttf") format("truetype");
+  font-family: "Noto Serif";
+  src: url("/fonts/Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Qlassy";
-  src: url("/fonts/Qlassy.ttf") format("truetype");
+  font-family: "Noto Serif";
+  src: url("/fonts/Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Akkurat";
-  src: url("/fonts/Akkurat.ttf") format("truetype");
+  font-family: "Noto Serif";
+  src: url("/fonts/Italic.ttf") format("truetype");
   font-weight: normal;
-  font-style: normal;
+  font-style: italic;
 }
 
 @font-face {
-  font-family: "Akkurat";
-  src: url("/fonts/Akkurat.ttf") format("truetype");
+  font-family: "Noto Serif";
+  src: url("/fonts/BoldItalic.ttf") format("truetype");
   font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Chronicle";
-  src: url("/fonts/ChronicleSemibold.otf") format("truetype");
-  font-style: normal;
-  font-weight: 400;
+  font-style: italic;
 }

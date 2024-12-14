@@ -1,67 +1,6 @@
 <template>
   <div class="relative pt-16">
-    <div class="relative h-[60vh] sm:h-[70vh] md:h-[80vh] overflow-hidden">
-      <div
-        v-for="(slide, index) in slides"
-        :key="index"
-        :class="[
-          'absolute inset-0 transition-opacity duration-500',
-          currentSlide === index ? 'opacity-100' : 'opacity-0',
-        ]"
-      >
-        <div class="relative h-full">
-          <img
-            :src="slide.image"
-            :alt="slide.title"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-black/30"></div>
-          <div
-            class="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4"
-          >
-            <transition name="slide-fade" mode="out-in">
-              <div
-                v-if="textVisible && currentSlide === index"
-                :key="index"
-                class="text-content"
-              >
-                <h2
-                  class="text-sm sm:text-base md:text-lg tracking-wider mb-2 sm:mb-4"
-                >
-                  {{ slide.subtitle }}
-                </h2>
-                <h1
-                  class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-4 sm:mb-6 md:mb-8"
-                >
-                  {{ slide.title }}
-                </h1>
-                <button
-                  class="px-6 sm:px-8 py-2 sm:py-3 bg-white text-gray-900 hover:bg-gray-100 transition-colors text-sm sm:text-base"
-                >
-                  {{ slide.cta }}
-                </button>
-              </div>
-            </transition>
-          </div>
-        </div>
-      </div>
-
-      <!-- Carousel Navigation -->
-      <div
-        class="absolute bottom-4 sm:bottom-8 left-0 right-0 flex justify-center gap-2"
-      >
-        <button
-          v-for="(_, index) in slides"
-          :key="index"
-          @click="setCurrentSlide(index)"
-          :class="[
-            'w-2 h-2 rounded-full transition-all',
-            currentSlide === index ? 'bg-white w-4' : 'bg-white/50',
-          ]"
-          :aria-label="`Go to slide ${index + 1}`"
-        ></button>
-      </div>
-    </div>
+    <EffectImage :slides="slides" />
   </div>
   <!-- Welcome -->
   <div class="py-12 sm:py-[80px] px-6 sm:px-0 text-center">
@@ -346,7 +285,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import EffectImage from "~/components/EffectImage.vue";
 
 definePageMeta({
   layout: "default",
@@ -393,57 +332,6 @@ const articles = [
     date: "04 NOV '24",
   },
 ];
-
-const currentSlide = ref(0);
-const textVisible = ref(true);
-
-const setCurrentSlide = (index) => {
-  textVisible.value = false;
-  setTimeout(() => {
-    currentSlide.value = index;
-    textVisible.value = true;
-  }, 500);
-};
-
-let intervalId;
-
-const startSlideshow = () => {
-  intervalId = setInterval(() => {
-    setCurrentSlide((currentSlide.value + 1) % slides.length);
-  }, 5000);
-};
-
-onMounted(() => {
-  startSlideshow();
-});
-
-onUnmounted(() => {
-  clearInterval(intervalId);
-});
-
-watch(currentSlide, () => {
-  clearInterval(intervalId);
-  startSlideshow();
-});
 </script>
 
-<style scoped lang="css">
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.5s ease;
-}
-
-.slide-fade-enter-from {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.slide-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-.text-content {
-  transition: all 0.5s ease;
-}
-</style>
+<style scoped lang="css"></style>
