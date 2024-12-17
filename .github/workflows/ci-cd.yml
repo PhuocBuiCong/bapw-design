@@ -1,0 +1,33 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+    - run: npm ci
+    - run: npm run build
+    
+    - name: Deploy to production
+      if: github.event_name == 'push'
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+      run: |
+        ssh $USERNAME@$HOST "cd /var/www/bapw-design/bapw-design && git pull"
+        ssh $USERNAME@$HOST "cd /var/www/bapw-design/bapw-design && npm install"
+        ssh $USERNAME@$HOST "cd /var/www/bapw-design/bapw-design && npm run build"
+        ssh $USERNAME@$HOST "pm2 restart bapw-design"
