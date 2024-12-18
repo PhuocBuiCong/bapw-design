@@ -17,6 +17,7 @@ export default {
       },
       fontFamily: {
         serif: ["Noto Serif", "serif"],
+        classDisplay: ["Class Display Serif", "san-serif"],
       },
     },
   },

@@ -1,446 +1,86 @@
 <template>
-  <div class="">
-    <!-- Hero Section -->
-    <section class="relative h-[400px] sm:h-[300px] bg-gray-900 text-white">
-      <div class="absolute inset-0">
-        <img
-          src="/images/bg-1.png"
-          alt="Hero Background"
-          class="w-full h-full object-cover opacity-50"
-        />
-      </div>
-      <div
-        class="relative z-10 flex flex-col items-center justify-center h-full text-center p-2"
-      >
-        <h2 class="text-6xl font-bold tracking-widest mb-4">UP TO 50% OFF</h2>
-        <p class="text-xl mb-8">OUR BLACK FRIDAY SALE IS HERE</p>
-
-        <div
-          class="flex sm:flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:px-0 overflow-x-scroll sm:overflow-auto"
-        >
-          <button
-            v-for="category in ['Dresses', 'Knitwear', 'Tops', 'Jackets']"
-            :key="category"
-            class="px-4 sm:px-6 py-2 border border-white hover:bg-white hover:text-black-100 transition-colors"
-          >
-            {{ category }}
-          </button>
-        </div>
-
-        <p class="text-sm">Terms and conditions apply</p>
-      </div>
-    </section>
-    <!-- space -->
-    <div class="pt-4"></div>
-    <!-- Product Grid Section -->
-    <section class="bg-gray-100">
-      <img
-        src="/images/model-1.png"
-        alt="Fashion Product 1"
-        class="w-full h-full object-cover hidden sm:block"
-      />
-      <img
-        src="/images/model-sp-1.png"
-        alt="Fashion Product 1"
-        class="w-full h-full object-cover block sm:hidden"
-      />
-    </section>
-    <!-- title1 -->
-    <div class="flex flex-col text-center mt-4">
-      <h2 class="text-3xl font-medium font-chronicle mb-1">
-        Gucci's dazzling designs
-      </h2>
-      <span class="mb-4">
-        Steal the spotlight in sparkling co-ords, GG-monogrammed styles and more
-        festive looks
-      </span>
-      <p class="underline underline-offset-4 text-black-100">
-        Shop the collection
-      </p>
-    </div>
-    <!-- space -->
-    <div class="pt-8"></div>
-    <div class="sm:mx-6 px-3 sm:px-0">
-      <!-- swiper and content -->
-      <div class="flex flex-col sm:flex-row sm:max-w-[1440px] mx-auto">
-        <div class="sm:w-[30%] flex flex-col sm:ml-6">
-          <span class="text-black-100 font-akkurat text-sm mb-2"
-            >1,063 NEW ITEMS</span
-          >
-          <h1
-            class="text-4xl sm:text-5xl font-medium font-chronicle leading-[40px] sm:leading-[60px]"
-          >
-            New In
-          </h1>
-          <p class="mt-4 mb-6">
-            New arrivals, now dropping five days a week – discover the latest
-            launches onsite from Monday to Friday
-          </p>
-          <button
-            class="hidden sm:block h-10 max-w-[326px] bg-black-100 text-white border border-black-100 hover:opacity-80 transition-colors font-akkurat"
-            @click="navigateTo('/product')"
-          >
-            Shop New In
-          </button>
-        </div>
-        <div class="sm:w-[65%] ml-6">
-          <SwiperComponent
-            :items="itemCarousel"
-            :modules="modules"
-            :effect="'coverflow'"
-            :centeredSlides="true"
-            :slidesPerView="4"
-            :breakpoints="{
-              // when window width is >= 320px
-              320: {
-                slidesPerView: 2,
-              },
-              640: {
-                slidesPerView: 3,
-              },
-              // when window width is >= 1024px
-              1024: {
-                slidesPerView: 4,
-              },
-            }"
-            :coverflowEffect="{
-              rotate: 50,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: true,
-            }"
-            :space-between="10"
-            :navigation="{
-              prevEl: navigationPrevRef,
-              nextEl: navigationNextRef,
-              disabledClass: 'opacity-0 cursor-default pointer-events-none',
-            }"
-            :pagination="{
-              clickable: true,
-              dynamicBullets: true,
-            }"
-            :autoplay="{
-              delay: 3000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }"
-            @swiper="onSwiper"
-            swiper-class="w-full [&>.swiper-pagination]:hidden sm:[&>.swiper-pagination]:block"
-            image-class="w-[144px] h-[191px] sm:w-full sm:h-full object-cover"
-          />
-        </div>
-        <button
-          class="mt-8 block sm:hidden mx-auto h-10 w-[240px] sm:max-w-[326px] bg-black-100 text-white border border-black-100 hover:opacity-80 transition-colors font-akkurat"
-        >
-          Shop New In
-        </button>
-      </div>
-
-      <!-- content 2 -->
-      <div
-        class="flex flex-col sm:flex-row sm:max-w-[1440px] mx-auto mt-8 sm:mt-10"
-      >
-        <div class="flex flex-col w-full sm:w-50-custom sm:ml-6">
-          <img src="/images/ct-1.png" alt="content-1" />
-          <h2
-            class="font-chronicle text-xl sm:text-2xl leading-[30px] mt-4 mb-2 font-medium"
-          >
-            The Exclusive Collection
+  <div>
+    <Hero1 />
+    <Hero2 />
+    <Hero3 />
+    <Hero4 />
+    <Hero5 />
+    <!-- Social Media  -->
+    <section class="py-10 px-4 bg-[#413531]">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-light mb-8 text-white">
+            FOLLOW US ON SOCIAL
           </h2>
-          <p class="font-akkurat mb-4">
-            Blazé Milano leads our edit of unmissable looks available only at
-            NET‑A‑PORTER
-          </p>
-          <span
-            class="font-chronicle underline underline-offset-4 font-medium text-sm"
-            >Shop Exclusive</span
-          >
-        </div>
-
-        <div class="flex flex-col w-full sm:w-50-custom mt-8 sm:mt-0 sm:ml-6">
-          <img src="/images/ct-2.png" alt="content-2" />
-          <h2
-            class="font-chronicle text-xl sm:text-2xl leading-[30px] mt-4 mb-2 font-medium"
-          >
-            Your party destination
-          </h2>
-          <p class="font-akkurat mb-4">
-            Discover dramatic dresses, hot heels and exclusive must-see looks
-            from the party edit
-          </p>
-          <span
-            class="font-chronicle underline underline-offset-4 font-medium text-sm"
-            >Shop the party edit</span
-          >
-        </div>
-      </div>
-      <!-- content 3 -->
-      <div
-        class="flex flex-col sm:flex-row sm:max-w-[1440px] mx-auto mt-8 sm:mt-12"
-      >
-        <div class="w-full sm:max-w-[calc(60%-24px)] sm:ml-6">
-          <img src="/images/ct-3.png" alt="content-3" class="hidden sm:block" />
-          <img
-            src="/images/ct-3-sp.png"
-            alt="content-3"
-            class="block sm:hidden"
-          />
-        </div>
-        <div class="sm:pl-[8.5%] sm:max-w-[40%] sm:my-auto mt-8">
-          <h2
-            class="font-chronicle text-xl sm:text-2xl leading-[30px] mt-4 mb-2 font-medium text-center"
-          >
-            Alaïa’s Archetypes collection
-          </h2>
-          <p class="font-akkurat mb-4 text-center">
-            Presenting the Parisian maison’s sculptural silhouettes, ‘Le Teckel’
-            bags and more
-          </p>
-          <h5
-            class="font-chronicle underline underline-offset-4 font-medium text-sm text-center"
-          >
-            Shop the collection
-          </h5>
-        </div>
-      </div>
-      <!-- content 4 -->
-      <div
-        class="flex flex-col sm:flex-row sm:max-w-[1440px] mx-auto mt-8 sm:mt-10"
-      >
-        <div class="flex flex-col w-full sm:w-50-custom sm:ml-6">
-          <div class="hidden sm:block my-auto">
-            <h2
-              class="font-chronicle text-xl sm:text-2xl leading-[30px] mt-4 mb-2 font-medium text-center"
+          <div class="flex justify-center gap-8">
+            <a
+              href="#"
+              class="text-white hover:text-gray-600 transition-colors"
             >
-              Alaïa’s Archetypes collection
-            </h2>
-            <p class="font-akkurat mb-4 text-center">
-              Presenting the Parisian maison’s sculptural silhouettes, ‘Le
-              Teckel’ bags and more
-            </p>
-            <h5
-              class="font-chronicle underline underline-offset-4 font-medium text-sm text-center"
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-white hover:text-gray-600 transition-colors"
             >
-              Shop the collection
-            </h5>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-white hover:text-gray-600 transition-colors"
+            >
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.229 18.509c-2.074-.096-7.288-.096-9.358 0-2.417.112-2.699-2.155-2.71-6.509-.01-4.353.282-6.62 2.71-6.732 2.07-.095 7.284-.095 9.358 0 2.417.112 2.699 2.155 2.71 6.509.01 4.353-.282 6.62-2.71 6.732zm-7.229-9.509l6 3.5-6 3.5v-7z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-white hover:text-gray-600 transition-colors"
+            >
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-white hover:text-gray-600 transition-colors"
+            >
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                />
+              </svg>
+            </a>
           </div>
         </div>
-        <div class="flex flex-col w-full sm:w-50-custom sm:ml-6">
-          <img src="/images/ct-4.png" alt="content-1" />
-          <h2
-            class="font-chronicle text-xl sm:text-2xl leading-[30px] mt-4 mb-2 font-medium"
-          >
-            The Exclusive Collection
-          </h2>
-          <p class="font-akkurat mb-4">
-            Blazé Milano leads our edit of unmissable looks available only at
-            NET‑A‑PORTER
-          </p>
-          <span
-            class="font-chronicle underline underline-offset-4 font-medium text-sm"
-            >Shop Exclusive</span
-          >
-        </div>
 
-        <div class="flex flex-col w-full sm:w-50-custom mt-8 sm:mt-0 sm:ml-6">
-          <img src="/images/ct-4-1.png" alt="content-2" />
-          <h2
-            class="font-chronicle text-xl sm:text-2xl leading-[30px] mt-4 mb-2 font-medium"
-          >
-            Your party destination
-          </h2>
-          <p class="font-akkurat mb-4">
-            Discover dramatic dresses, hot heels and exclusive must-see looks
-            from the party edit
-          </p>
-          <span
-            class="font-chronicle underline underline-offset-4 font-medium text-sm"
-            >Shop the party edit</span
-          >
-        </div>
+        <!-- Image Grid -->
       </div>
-
-      <!-- effect fade -->
-      <div class="mt-[60px] flex items-center justify-center">
-        <div class="flex w-full sm:h-[640px] shadow-xl">
-          <div
-            v-for="(image, index) in imagesEffect"
-            :key="index"
-            @mouseenter="hoveredIndex = index"
-            @mouseleave="handleMouseLeave"
-            :class="[
-              'relative overflow-hidden transition-all duration-1000 ease-in-out cursor-pointer',
-              getImageClass(index),
-            ]"
-          >
-            <img
-              :src="image.src"
-              :alt="image.alt"
-              class="absolute inset-0 w-full h-full object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-black bg-opacity-20 transition-opacity duration-500 ease-in-out"
-              :class="{ 'opacity-0': isExpanded(index) }"
-            ></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- gallery image -->
-      <GalleryImage :articles="articles" class="mt-10 bg-white" />
-    </div>
+    </section>
   </div>
 </template>
 
 <script setup>
-import {
-  Navigation,
-  Pagination,
-  Autoplay,
-  EffectCoverflow,
-} from "swiper/modules";
-import GalleryImage from "~/components/GalleryImage.vue";
-import SwiperComponent from "~/components/SwiperComponent.vue";
+import { ref } from "vue";
+import Hero1 from "~/components/Hero1.vue";
+import Hero2 from "~/components/Hero2.vue";
+import Hero4 from "~/components/Hero4.vue";
+import Hero5 from "~/components/Hero5.vue";
 
 definePageMeta({
   layout: "default",
 });
-const itemCarousel = [
-  {
-    id: 1,
-    src: "/images/cr-1.png",
-    alt: "carousel-1",
-    des: "Carousel",
-  },
-  {
-    id: 2,
-    src: "/images/cr-2.png",
-    alt: "carousel-2",
-    des: "Carousel",
-  },
-  {
-    id: 3,
-    src: "/images/cr-3.png",
-    alt: "carousel-3",
-    des: "Carousel",
-  },
-  {
-    id: 4,
-    src: "/images/cr-4.png",
-    alt: "carousel-4",
-    des: "Carousel",
-  },
-  {
-    id: 5,
-    src: "/images/model-sp-1.png",
-    alt: "carousel-5",
-    des: "Carousel",
-  },
-  {
-    id: 6,
-    src: "/images/cr-1.png",
-    alt: "carousel-6",
-    des: "Carousel",
-  },
-  {
-    id: 7,
-    src: "/images/cr-2.png",
-    alt: "carousel-7",
-    des: "Carousel",
-  },
-  {
-    id: 8,
-    src: "/images/cr-3.png",
-    alt: "carousel-8",
-    des: "Carousel",
-  },
-  {
-    id: 4,
-    src: "/images/cr-4.png",
-    alt: "carousel-9",
-    des: "Carousel",
-  },
-];
-
-const imagesEffect = [
-  {
-    src: "/images/fade1.png",
-    alt: "Image 1",
-  },
-  {
-    src: "/images/fade2.png",
-    alt: "Image 2",
-  },
-  {
-    src: "/images/fade3.png",
-    alt: "Image 3",
-  },
-  {
-    src: "/images/fade4.png",
-    alt: "Image 4",
-  },
-];
-
-const articles = [
-  {
-    image: "/images/ct-2.png",
-    category: "INTERIORS",
-    title: "15 Instagram Accounts To Follow For Interior-Design Envy",
-    date: "30 OCT '24",
-  },
-  {
-    image: "/images/ct-2.png",
-    category: "THE FASHION MEMO",
-    title: "The Most Luxurious Stocking Stuffers",
-    date: "29 OCT '24",
-  },
-  {
-    image: "/images/ct-2.png",
-    category: "TRAVEL",
-    title: "7 Idyllic Destinations For A Winter-Sun Vacation",
-    date: "18 NOV '24",
-  },
-  {
-    image: "/images/ct-2.png",
-    category: "TRAVEL",
-    title: "The Hottest Hotel Openings To Have On Your Radar",
-    date: "04 NOV '24",
-  },
-];
-
-// Refs for custom navigation
-const navigationPrevRef = ref(null);
-const navigationNextRef = ref(null);
-
-// Modules to use
-const modules = [Navigation, Pagination, Autoplay, EffectCoverflow];
-
-// hover effect
-const hoveredIndex = ref(null);
-const lastHoveredIndex = ref(0);
-
-onMounted(() => {
-  hoveredIndex.value = 0;
-});
-
-const handleMouseLeave = () => {
-  lastHoveredIndex.value = hoveredIndex.value;
-  hoveredIndex.value = null;
-};
-
-const isExpanded = (index) => {
-  if (hoveredIndex.value !== null) {
-    return hoveredIndex.value === index;
-  }
-  return lastHoveredIndex.value === index;
-};
-
-const getImageClass = (index) => {
-  if (isExpanded(index)) {
-    return "w-2/3";
-  }
-  return "w-1/4";
-};
 </script>
-<style lang="css"></style>
+<style scoped lang="css"></style>
