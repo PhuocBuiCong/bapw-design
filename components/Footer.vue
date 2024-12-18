@@ -56,7 +56,7 @@
           <iframe
             loading="lazy"
             allowfullscreen
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=VinSmartCity&zoom=10&maptype=roadmap"
+            :src="srcMap"
             class="responsive-map"
           ></iframe>
         </div>
@@ -64,6 +64,11 @@
     </div>
   </footer>
 </template>
+<script setup>
+const srcMap = ref(
+  `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=VinSmartCity&zoom=10&maptype=roadmap`
+);
+</script>
 <style scoped lang="css">
 .maps-wrapper {
   flex: 1; /* Cho phép div map co giãn */
