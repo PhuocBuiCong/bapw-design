@@ -9,9 +9,9 @@
       ]"
     >
       <div class="relative h-full">
-        <img
-          :src="slide.image"
-          :alt="slide.title"
+        <NuxtImg
+          :src="slide.src"
+          :alt="slide.alt"
           class="w-full h-full object-cover"
         />
         <div class="absolute inset-0 bg-black/30"></div>
@@ -34,11 +34,6 @@
               >
                 {{ slide.title }}
               </h1>
-              <button
-                class="px-6 sm:px-8 py-2 sm:py-3 bg-white text-gray-900 hover:bg-gray-100 transition-colors text-sm sm:text-base"
-              >
-                {{ slide.cta }}
-              </button>
             </div>
           </transition>
         </div>

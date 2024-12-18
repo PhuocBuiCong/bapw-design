@@ -25,3 +25,25 @@
   font-weight: bold;
   font-style: italic;
 }
+
+/* ///////////////// */
+@font-face {
+  font-family: "Class Display Serif";
+  src: url("/fonts/ClassDisplay-Regular.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Class Display Serif";
+  src: url("/fonts/ClassDisplay-Bold.otf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Class Display Serif";
+  src: url("/fonts/ClassDisplay-Semibold.otf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}

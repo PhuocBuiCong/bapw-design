@@ -22,9 +22,8 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "BapwDesign",
-      // Các thuộc tính meta khác nếu cần
-      meta: [{ name: "description", content: "BapwDesign" }],
+      title: "Bapw Design",
+      meta: [{ name: "description", content: "Bapw Design" }],
       link: [{ rel: "icon", type: "image/png", href: "/images/model-1.png" }],
     },
   },
