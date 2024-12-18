@@ -8,10 +8,10 @@
 
       <!-- Filter Navigation -->
       <nav class="flex justify-center mb-12">
-        <ul class="flex gap-8">
+        <ul class="flex gap-2 md:gap-8">
           <li v-for="filter in filters" :key="filter">
             <button
-              class="px-4 py-2 text-[#3c2a21] hover:text-[#5c4033] transition-colors relative"
+              class="px-2 py-2 md:px-4 md:py-2 text-[#3c2a21] hover:text-[#5c4033] transition-colors relative"
               :class="{
                 'font-medium after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#3c2a21]':
                   filter === 'HOT',
