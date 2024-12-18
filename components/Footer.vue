@@ -1,33 +1,78 @@
 <template>
-  <footer class="bg-gray-100">
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <nav
-        class="-mx-5 -my-2 flex flex-wrap justify-center"
-        aria-label="Footer"
-      >
-        <div v-for="item in footerItems" :key="item" class="px-5 py-2">
-          <NuxtLink
-            :to="'/' + item.toLowerCase().replace(' ', '-')"
-            class="text-base text-gray-500 hover:text-gray-900"
-          >
-            {{ item }}
-          </NuxtLink>
+  <footer class="py-16 bg-[#f7efe7]">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row w-full gap-10">
+        <div>
+          <div class="text-[#3c2a21] text-lg tracking-wide mb-4">CONTACT</div>
+          <h2 class="text-4xl md:text-5xl font-serif text-black-100">
+            Let's work <span class="italic">together</span>!
+          </h2>
+          <div class="mt-5 md:mt-10">
+            <a
+              href="#"
+              class="inline-block px-8 py-3 border border-[#3c2a21] text-[#3c2a21] hover:bg-[#3c2a21] hover:text-white transition-colors rounded-full text-sm tracking-wide"
+            >
+              CONTACT ME
+            </a>
+          </div>
         </div>
-      </nav>
-      <p class="mt-8 text-center text-base text-gray-400">
-        &copy; {{ new Date().getFullYear() }} Net-A-Porter Clone. All rights
-        reserved.
-      </p>
+        <!-- middle -->
+        <div>
+          <!-- Contact Information -->
+          <div class="space-y-8">
+            <!-- Email -->
+            <div class="mt-0 md:mt-6">
+              <div class="text-sm text-[#3c2a21] mb-2">EMAIL</div>
+              <a
+                href="mailto:HELLO@DIVIFASHION.COM"
+                class="text-black-100 font-bold hover:text-[#5c4033] transition-colors"
+              >
+                HELLO@DIVIFASHION.COM
+              </a>
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <div class="text-sm text-[#3c2a21] mb-2">PHONE</div>
+              <a
+                href="tel:(346)361-6866"
+                class="text-black-100 font-bold hover:text-[#5c4033] transition-colors"
+              >
+                (346) 361-6866
+              </a>
+            </div>
+
+            <!-- Address -->
+            <div>
+              <div class="text-sm text-[#3c2a21] mb-2">ADDRESS</div>
+              <address class="text-black-100 font-bold not-italic">
+                Vinhomes SmartCity
+              </address>
+            </div>
+          </div>
+        </div>
+        <!-- right -->
+        <div class="maps-wrapper h-[244px]">
+          <iframe
+            loading="lazy"
+            allowfullscreen
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=VinSmartCity&zoom=10&maptype=roadmap"
+            class="responsive-map"
+          ></iframe>
+        </div>
+      </div>
     </div>
   </footer>
 </template>
+<style scoped lang="css">
+.maps-wrapper {
+  flex: 1; /* Cho phép div map co giãn */
+}
 
-<script setup>
-const footerItems = [
-  "About Us",
-  "Customer Care",
-  "Delivery",
-  "Returns",
-  "Contact Us",
-];
-</script>
+.responsive-map {
+  width: 100%;
+  height: 100%; /* Full chiều cao của maps-wrapper */
+  border: none;
+  object-fit: cover; /* Đảm bảo ảnh map fill đúng kích thước */
+}
+</style>
