@@ -17,23 +17,6 @@
         <p class="text-[#5c4033]">Khám phá bộ sưu tập mới của chúng tôi</p>
       </div>
 
-      <!-- Product Categories Grid -->
-      <!-- <div class="grid md:grid-cols-3 gap-8">
-        <div v-for="category in categories" :key="category.name" class="group">
-          <div
-            class="relative mb-4 aspect-square bg-white rounded-lg overflow-hidden"
-          >
-            <NuxtImg
-              :src="category.src"
-              :alt="category.name"
-              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-          </div>
-          <h3 class="text-center text-[#3c2a21] font-medium tracking-wide">
-            {{ category.name }}
-          </h3>
-        </div>
-      </div> -->
       <!-- PC -->
       <div
         class="hidden lg:block relative h-[700px] rounded-2xl overflow-hidden mt-[80px]"
@@ -66,7 +49,21 @@
       <!-- END PC -->
       <!-- SP -->
       <div class="relative pt-10 block lg:hidden">
-        <EffectImage :slides="imagesEffect" />
+        <!-- <EffectImage :slides="imagesEffect" /> -->
+        <!-- Product Categories Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <div v-for="iamge in imagesEffect" :key="iamge.src" class="group">
+            <div
+              class="relative mb-4 aspect-square bg-white rounded-lg overflow-hidden"
+            >
+              <NuxtImg
+                :src="iamge.src"
+                :alt="iamge.alt"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+          </div>
+        </div>
       </div>
       <!-- END SP -->
     </div>
@@ -92,20 +89,20 @@ const categories = [
 ];
 const imagesEffect = [
   {
-    src: "/images/fade1.png",
-    alt: "Image 1",
+    src: "/images/cl1.jpg",
+    alt: "Bộ sưu tập 1",
   },
   {
-    src: "/images/fade2.png",
-    alt: "Image 2",
+    src: "/images/cl5.jpg",
+    alt: "Bộ sưu tập 5",
   },
   {
-    src: "/images/fade3.png",
-    alt: "Image 3",
+    src: "/images/cl3.jpg",
+    alt: "Bộ sưu tập 3",
   },
   {
-    src: "/images/fade4.png",
-    alt: "Image 4",
+    src: "/images/cl4.jpg",
+    alt: "Bộ sưu tập 4",
   },
 ];
 // hover effect
