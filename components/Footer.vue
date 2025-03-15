@@ -31,7 +31,7 @@
         <div>
           <h3 class="text-lg font-semibold mb-2">Liên hệ</h3>
           <p class="text-sm">Email: info@bapwdesign.com</p>
-          <p class="text-sm">Điện thoại: +84 123 456 789</p>
+          <p class="text-sm">Điện thoại: 0961717906</p>
           <!-- Thay bằng email và số điện thoại thực tế -->
         </div>
 
